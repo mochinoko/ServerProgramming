@@ -1,6 +1,6 @@
 package fi.haagahelia.course.domain;
 
-import java.util.Locale.Category;
+import fi.haagahelia.course.domain.Category;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

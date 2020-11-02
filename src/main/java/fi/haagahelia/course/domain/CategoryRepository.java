@@ -1,6 +1,6 @@
 package fi.haagahelia.course.domain;
 import java.util.List;
-import java.util.Locale.Category;
+import fi.haagahelia.course.domain.Category;
 
 import org.springframework.data.repository.CrudRepository;
 

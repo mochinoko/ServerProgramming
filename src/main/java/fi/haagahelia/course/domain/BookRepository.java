@@ -1,7 +1,7 @@
 package fi.haagahelia.course.domain;
 
 import java.util.List;
-
+import fi.haagahelia.course.domain.Book;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
