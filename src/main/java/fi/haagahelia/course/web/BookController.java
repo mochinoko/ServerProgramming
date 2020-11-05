@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -52,6 +53,13 @@ public class BookController {
 		model.addAttribute("categories", crepository.findAll());
 		return "editbook";
 	}
+	@PreAuthorize("hasAuthority('ADMIN')")
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)	
+	public String deletBook(@PathVariable("id") Long id, Model model) {
+		brepository.deleteById(id);
+		return "redirect:../booklist";
+	}
+	
 
 	// RESTful service to get all books
 	@RequestMapping(value="/books", method=RequestMethod.GET)
@@ -67,5 +75,10 @@ public class BookController {
 	@RequestMapping(value="/login")
 	public String login() {
 	    return "login";
+	}
+	@GetMapping(value = "/saveEdit")
+	public String saveEdit(Book book) {
+		brepository.save(book);
+		return "redirect:booklist";
 	}
 }

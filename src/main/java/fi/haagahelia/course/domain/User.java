@@ -5,8 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name= "usertable")
+
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,9 +21,10 @@ public class User {
 	private String passwordHash;
 	@Column(name = "role", nullable = false)
 	private String role;
-	public User(String username, String password, String role) {
+	
+	public User(String username, String passwordHash, String role) {
 		this.username = username;
-		this.passwordHash = password;
+		this.passwordHash = passwordHash;
 		this.role = role;
 	}
 	public User() {
