@@ -28,13 +28,17 @@ public class BookListApplication {
 	@Bean
 	public CommandLineRunner bookDemo(BookRepository brepository, CategoryRepository crepository, UserRepository urepository ) {
 		return (args) -> {
-			//log.info("save a couple of books");
+			log.info("save a couple of books");
+			brepository.deleteAll();
+			crepository.deleteAll();
 			
-			//User user1 = new User("user","$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
-			//User user2 = new User("admin","$2a$10$btV5WBcok1SlkJxpGm82H.iT48n0JpWeiVNsBYQnVB/YBWYoxPNuq", "ADMIN");
+			urepository.deleteAll();
 			
-			//urepository.save(user1);
-			//urepository.save(user2);
+			User user1 = new User("user","$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
+			User user2 = new User("admin","$2a$10$btV5WBcok1SlkJxpGm82H.iT48n0JpWeiVNsBYQnVB/YBWYoxPNuq", "ADMIN");
+			
+			urepository.save(user1);
+			urepository.save(user2);
 			
 			
 			crepository.save(new Category("IT"));

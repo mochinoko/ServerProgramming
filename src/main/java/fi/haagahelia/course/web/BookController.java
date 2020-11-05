@@ -27,7 +27,7 @@ public class BookController {
 	private CategoryRepository crepository;
 	
 	// Show all students
-	@RequestMapping(value="/bookList")
+	@RequestMapping(value="/booklist")
 	public String bookList(Model model) {	
 		model.addAttribute("books", brepository.findAll());
 	    return "bookList";
